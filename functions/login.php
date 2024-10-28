@@ -17,7 +17,7 @@ if ($result && mysqli_num_rows($result) > 0) {
    // Cek apakah password sesuai
    if ($password == $user['password']) {
       // Set session
-      $_SESSION['username'] = $user['username'];
+      $_SESSION['email'] = $user['email'];
       header("location: ../index.php");
       exit;
    } else {
