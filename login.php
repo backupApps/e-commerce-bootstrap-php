@@ -29,7 +29,7 @@
                      <div class="col-md-6 col-lg-7 d-flex align-items-center">
                         <div class="card-body p-4 p-lg-5 text-black">
 
-                           <form>
+                           <form method="POST" action="functions/login.php" enctype="multipart/form-data">
 
                               <div class="d-flex align-items-center mb-3 pb-1">
                                  <img src="assets/img/e-commerce.png" alt="" width="100">
@@ -38,13 +38,14 @@
                               <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
 
                               <div data-mdb-input-init class="form-outline mb-2">
-                                 <input type="email" id="form2Example17" class="form-control form-control-lg" />
-                                 <label class="form-label" for="form2Example17">Email address</label>
+                                 <label class="form-label" for="email">Email address</label>
+                                 <input type="email" id="email" name="email" class="form-control form-control-lg" />
                               </div>
 
                               <div data-mdb-input-init class="form-outline mb-2">
-                                 <input type="password" id="form2Example27" class="form-control form-control-lg" />
-                                 <label class="form-label" for="form2Example27">Password</label>
+                                 <label class="form-label" for="password">Password</label>
+                                 <input type="password" id="password" name="password"
+                                    class="form-control form-control-lg" />
                               </div>
                               or
                               <div
@@ -63,7 +64,7 @@
 
                               <div class="pt-1 mb-4">
                                  <button data-mdb-button-init data-mdb-ripple-init class="btn btn-dark btn-lg btn-block"
-                                    type="button">Login</button>
+                                    type="submit" name="submit">Login</button>
                               </div>
 
                               <a class="small text-muted" href="#!">Forgot password?</a>

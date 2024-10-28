@@ -29,7 +29,7 @@
                      <div class="col-md-6 col-lg-7 d-flex align-items-center">
                         <div class="card-body p-4 p-lg-5 text-black">
 
-                           <form method="post">
+                           <form method="POST" action="functions/register.php" enctype="multipart/form-data">
 
                               <div class="d-flex align-items-center mb-3 pb-1">
                                  <img src="assets/img/e-commerce.png" alt="" width="100">
