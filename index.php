@@ -1,3 +1,20 @@
+<?php 
+session_start();
+
+if (isset($_GET['logout'])) {
+   session_unset();
+   session_destroy();
+   header("Location: index.php"); // Tetap di index.php setelah logout
+   exit;
+}
+
+// Cek apakah sesi login sudah ada
+$isLoggedIn = isset($_SESSION['email']);
+$username = $isLoggedIn ? $_SESSION['email'] : '';
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,10 +23,13 @@
    <meta name="viewport" content="width=device-width, initial-scale=1" />
    <title>E-Commerse</title>
    <link rel="stylesheet" href="styles.css" />
+   <link rel="icon" href="assets/img/e-commerce-title.png" />
 
    <!-- bootstrap -->
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
 
    <!-- cdn -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
@@ -49,7 +69,20 @@
             </button>
          </div>
          <a href=""><i class="fa-solid fa-cart-shopping me-3 text-black fs-4"></i></a>
-         <a href=""><i class="fa-solid fa-user me-3 text-black fs-4"></i></a>
+         <div class="dropdown d-flex align-items-center">
+            <?php if ($isLoggedIn): ?>
+            <span><?= htmlspecialchars($username); ?></span>
+            <i class="fa-solid fa-user me-3 text-black fs-4 dropdown-toggle" data-bs-toggle="dropdown"
+               aria-expanded="false" style="cursor: pointer;"></i>
+            <ul class="dropdown-menu">
+               <li><a class="dropdown-item" href="profile.php">Profile</a></li>
+               <li><a class="dropdown-item" href="settings.php">Settings</a></li>
+               <li><a class="dropdown-item" href="index.php?logout=true">Logout</a></li>
+            </ul>
+            <?php else: ?>
+            <a href="login.php"><i class="fa-solid fa-user me-3 text-black fs-4" style="cursor: pointer;"></i></a>
+            <?php endif; ?>
+         </div>
       </div>
    </nav>
 
@@ -571,6 +604,7 @@
    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
    <!-- javascript -->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
    </script>
