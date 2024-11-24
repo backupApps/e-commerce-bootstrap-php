@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,15 +41,43 @@
 
                               <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
 
+                              <?php 
+                                    if(isset($_SESSION['msg']) || 
+                                    isset($_SESSION['msg-user'])) 
+                                    {
+                                 ?>
+                              <p class="text-danger">
+                                 <?php echo $_SESSION['msg']; ?>
+                              </p>
+                              <?php } ?>
+
                               <div data-mdb-input-init class="form-outline mb-2">
                                  <label class="form-label" for="email">Email address</label>
                                  <input type="email" id="email" name="email" class="form-control form-control-lg" />
+                                 <?php 
+                                    if (isset($_SESSION['msg-field-user'])) {
+                                 ?>
+
+                                 <p class="text-danger">
+                                    <?php echo $_SESSION['msg-field-user'] ?>
+                                 </p>
+
+                                 <?php } ?>
                               </div>
 
                               <div data-mdb-input-init class="form-outline mb-2">
                                  <label class="form-label" for="password">Password</label>
                                  <input type="password" id="password" name="password"
                                     class="form-control form-control-lg" />
+                                 <?php 
+                                    if (isset($_SESSION['msg-field-pass'])) {
+                                 ?>
+
+                                 <p class="text-danger">
+                                    <?php echo $_SESSION['msg-field-pass'] ?>
+                                 </p>
+
+                                 <?php } ?>
                               </div>
                               or
                               <div
@@ -71,7 +101,7 @@
 
                               <a class="small text-muted" href="#!">Forgot password?</a>
                               <p class="mb-5 pb-lg-2" style="color: #393f81;">Don't have an account?
-                                 <a href="register.php" style="color: #393f81;">Register here</a>
+                                 <a href="register_form.php" style="color: #393f81;">Register here</a>
                               </p>
                               <a href="#!" class="small text-muted">Terms of use.</a>
                               <a href="#!" class="small text-muted">Privacy policy</a>
@@ -88,3 +118,5 @@
 </body>
 
 </html>
+
+<?php session_destroy(); ?>

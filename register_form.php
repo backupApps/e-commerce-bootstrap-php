@@ -61,7 +61,7 @@
                               </div>
 
                               <p class="mb-5 pb-lg-2" style="color: #393f81;">Have an account?
-                                 <a href="login.php" style="color: #393f81;"> Login</a>
+                                 <a href="login_form.php" style="color: #393f81;"> Login</a>
                               </p>
                               <a href="#!" class="small text-muted">Terms of use.</a>
                               <a href="#!" class="small text-muted">Privacy policy</a>

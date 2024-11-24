@@ -80,7 +80,7 @@ $username = $isLoggedIn ? $_SESSION['email'] : '';
                <li><a class="dropdown-item" href="index.php?logout=true">Logout</a></li>
             </ul>
             <?php else: ?>
-            <a href="login.php"><i class="fa-solid fa-user me-3 text-black fs-4" style="cursor: pointer;"></i></a>
+            <a href="login_form.php"><i class="fa-solid fa-user me-3 text-black fs-4" style="cursor: pointer;"></i></a>
             <?php endif; ?>
          </div>
       </div>
